@@ -1,0 +1,37 @@
+services:
+  database:
+    image: postgres:17
+    container_name: fin_dash_db
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  adminer:
+    image: adminer
+    container_name: fin_dash_adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+
+volumes:
+  pgdata:
+
+networks:
+  backend:
