@@ -9,6 +9,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - backend
+    ports:
+      - "5432:5432"
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
@@ -24,7 +26,7 @@ services:
   adminer:
     image: adminer
     container_name: fin_dash_adminer
-    restart: always
+    restart: unless-stopped
     ports:
       - 8080:8080
     networks:

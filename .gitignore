@@ -4,6 +4,7 @@ obj/
 artifacts/
 
 # Logs
+Logs/
 *.log
 
 # User-specific files
@@ -23,6 +24,7 @@ artifacts/
 # Dotnet-specific
 project.lock.json
 project.fragment.lock.json
+**/Properties/launchSettings.json
 
 # Rider & ReSharper (optional: remove if never used)
 .idea/
@@ -35,3 +37,6 @@ project.fragment.lock.json
 # Node.js (frontend)
 node_modules/
 dist/
+
+# MacOSS
+.DS_Store
