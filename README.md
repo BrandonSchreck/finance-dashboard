@@ -35,7 +35,7 @@ cd finance-dashboard
 
 ### Setup .env File
 
-Copy the [.env.example](./env.example) file:
+Copy the [.env.example](./.env.example) file:
 
 ```bash
 cp .env.example .env
